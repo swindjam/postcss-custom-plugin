@@ -1,0 +1,15 @@
+module.exports = ({ prefix } = { prefix: 'body' }) => {
+    return {
+        postcssPlugin: 'postcss-selector-prefix',
+        Rule(rule) {
+            if(rule.parent.name !== 'keyframes') {
+                rule.selector = rule.selector
+                .split(',')
+                .map(selector => `${prefix} ${selector.trim()}`)
+                .join(', ');
+            }
+        }
+    }
+}
+
+module.exports.postcss = true;
