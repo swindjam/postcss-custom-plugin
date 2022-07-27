@@ -3,4 +3,12 @@
   \**************************************************************************************************************************************/
 body .main {
     color: red;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+    @media screen and (max: 700px) {body .main {
+        color: blue
+}
 }
